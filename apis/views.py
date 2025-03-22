@@ -14,9 +14,9 @@ from email.mime.text import MIMEText
 
 subject = "Warning Mail"
 body = "Warning on one of the sensors check the System!"
-sender = "iqsoft@iqsoft.gr"
-recipients = ["nikolasderm@gmail.com"]
-password = "IQs0ft_p0wer"
+sender = ""
+recipients = [""]
+password = ""
 
 
 def send_email(subject, body, sender, recipients, password):
@@ -24,7 +24,7 @@ def send_email(subject, body, sender, recipients, password):
     msg['Subject'] = subject
     msg['From'] = sender
     msg['To'] = ', '.join(recipients)
-    with smtplib.SMTP_SSL('mail.iqsoft.gr', 465) as smtp_server:
+    with smtplib.SMTP_SSL('', 465) as smtp_server:
        smtp_server.login(sender, password)
        smtp_server.sendmail(sender, recipients, msg.as_string())
        print('no error')
