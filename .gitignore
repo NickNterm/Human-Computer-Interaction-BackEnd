@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.venv
+Pipfile.lock
+
+# Django-specific files
+db.sqlite3
+*.sqlite3
+/media/
+staticfiles/
+
+# Logs and debug files
+*.log
+*.pot
+*.pyc
+.DS_Store
+
+# Environment variables & settings
+.env
+config/settings/local.py
+config/settings/dev.py
+secrets.json
+
+# Node.js files (if using frontend frameworks)
+node_modules/
+npm-debug.log
+
+# VS Code & PyCharm files
+.vscode/
+.idea/
+*.iml
+
