@@ -63,6 +63,7 @@ class Question(models.Model):
 
 class Reward(models.Model):
     name = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
     store = models.ForeignKey(Stores, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
 
