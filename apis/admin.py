@@ -12,8 +12,8 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ('question', 'answer')
 
 class RewardAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ('name',)
+    list_display = ('name','is_active')
+    search_fields = ('name','is_active')
 
 class StoresAdmin(admin.ModelAdmin):
     list_display = ('name', 'lat', 'lon', 'description')

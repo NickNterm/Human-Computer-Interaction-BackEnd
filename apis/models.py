@@ -43,6 +43,9 @@ class Stores(models.Model):
     imageUrl = models.CharField(max_length=1000)
     description = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 
 class Quiz(models.Model):
     poi = models.ForeignKey(POI, on_delete=models.CASCADE)
@@ -60,6 +63,8 @@ class Question(models.Model):
 
 class Reward(models.Model):
     name = models.CharField(max_length=100)
+    store = models.ForeignKey(Stores, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

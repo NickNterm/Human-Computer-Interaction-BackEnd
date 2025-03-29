@@ -6,20 +6,21 @@ class PoiSerializer(serializers.ModelSerializer):
         model = POI
         fields = ['id', 'lat', 'lon', 'type', 'name', 'imageUrl', 'shortDescription', 'longDescription']
 
-class QuizSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Quiz
-        fields = ['id', 'questions']
-
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ['id', 'question', 'choice1', 'choice2', 'choice3', 'answer']
 
+class QuizSerializer(serializers.ModelSerializer):
+    questions = QuestionSerializer(many=True, read_only=True)
+    class Meta:
+        model = Quiz
+        fields = ['questions']
+
 class RewardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reward
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'is_active', 'store']
 
 class StoresSerializer(serializers.ModelSerializer):
     class Meta:
