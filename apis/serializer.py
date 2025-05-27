@@ -28,7 +28,7 @@ class RewardSerializer(serializers.ModelSerializer):
     store = StoresSerializer(many=False)
     class Meta:
         model = Reward
-        fields = ['id', 'name', 'is_active', 'store']
+        fields = ['id', 'name', 'code', 'is_active', 'store']
 
 # class GetGeneralSensorValuesSerializer(serializers.ModelSerializer):
 #     class Meta:
