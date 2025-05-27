@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import GeneralSensor, GeneralSensorValues, POI, Quiz, Question, Reward, Stores
+from .models import  POI, Quiz, Question, Reward, Stores
 
 class PoiSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,15 +17,18 @@ class QuizSerializer(serializers.ModelSerializer):
         model = Quiz
         fields = ['questions']
 
-class RewardSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Reward
-        fields = ['id', 'name', 'is_active', 'store']
 
 class StoresSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stores
-        fields = ['id', 'lat', 'lon', 'name', 'imageUrl', 'description']
+        fields = ['id',  'imageUrl', 'lat', 'lon' ,'name', 'description']
+
+
+class RewardSerializer(serializers.ModelSerializer):
+    store = StoresSerializer(many=False)
+    class Meta:
+        model = Reward
+        fields = ['id', 'name', 'is_active', 'store']
 
 # class GetGeneralSensorValuesSerializer(serializers.ModelSerializer):
 #     class Meta:
